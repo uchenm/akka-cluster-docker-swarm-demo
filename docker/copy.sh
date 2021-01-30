@@ -1,0 +1,1 @@
+cp ../target/akka-cluster-docker-swarm-demo-1.0-SNAPSHOT.jar  ./pat/akka-cluster-docker-swarm-demo-1.0-SNAPSHOT.jar

@@ -1,0 +1,49 @@
+version: '3.6'
+services:
+
+  demo-service-1:
+    image: docker.sense.io/akka-cluster-docker-swarm-demo:1.0
+    environment:
+      host: demo-service-1
+    volumes:
+      - ./conf:/pat/conf
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 10s
+    networks:
+      - pat-net
+  demo-service-2:
+    image: docker.sense.io/akka-cluster-docker-swarm-demo:1.0
+    environment:
+      host: demo-service-2
+    volumes:
+      - ./conf:/pat/conf
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 10s
+    networks:
+      - pat-net
+  demo-service-3:
+    image: docker.sense.io/akka-cluster-docker-swarm-demo:1.0
+    environment:
+      host: demo-service-3
+    volumes:
+      - ./conf:/pat/conf
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 10s
+      update_config:
+        parallelism: 1
+        delay: 10s
+    networks:
+      - pat-net
+
+networks:
+  pat-net:
+    external: true
